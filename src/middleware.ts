@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 
 const {auth: middleware} = NextAuth(authConfig)
 
-const privateRoutes = ["/ad", "/ad/lostObjects", "foundObjects"]
+const privateRoutes = ["/ad", "/my-objects"]
 
 export default middleware((req) => {
     const {nextUrl, auth} = req
