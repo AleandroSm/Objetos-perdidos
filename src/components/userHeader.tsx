@@ -1,5 +1,7 @@
 import { auth, signOut } from "@/auth"
+import Image from "next/image"
 import Link from "next/link"
+import Logo from "@/assets/logo.png"
 
 
 
@@ -10,7 +12,15 @@ export default async function UserHeader(){
 
     return (
         <header className="pt-4">
-            <nav className="mr-4">
+            <nav className="flex justify-between mr-4">
+                <Link href={'/'}>
+                    <Image 
+                        src={Logo}
+                        alt="logo"
+                        width={70}
+                        className="rounded-full px-2 mb-1"
+                    />
+                </Link>
                 <ul className="flex justify-end gap-4 items-center">
                     <li>
                         <Link href={"/"}>Inicio</Link>
@@ -22,7 +32,7 @@ export default async function UserHeader(){
                     {
                         session ? <>
                             <li>
-                                <Link href={'my-objects'}>Mis objetos</Link>
+                                <Link href={'/my-objects'}>Mis objetos</Link>
                             </li>
                             <li>
                                 <span>Bienvenido: {session.user?.name}</span>
